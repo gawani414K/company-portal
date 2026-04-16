@@ -1,36 +1,72 @@
-<div class="container">
-        <h2>クイックリンク</h2>
-        <div class="card-grid">
-            <a href="#" class="card">
-                <h3>勤怠管理システム</h3>
-                <p>出退勤の打刻・休暇申請はこちら</p>
-            </a>
-            <a href="#" class="card">
-                <h3>経費精算ツール</h3>
-                <p>交通費・経費の精算申請（毎月25日締）</p>
-            </a>
-            <a href="#" class="card">
-                <h3>社内規定・マニュアル</h3>
-                <p>就業規則や各種マニュアルの閲覧</p>
-            </a>
-            <a href="#" class="card">
-                <h3>会議室予約</h3>
-                <p>共有カレンダーでの会議室押さえ</p>
-            </a>
-            <a href="https://www.notion.so/Notion-1f2dd510a7e580e0b654e843c9027fd2" class="card" target="_blank">
-                <h3>社内Wiki (Notion)</h3>
-                <p>社内のナレッジ共有、議事録、マニュアルはこちらを参照してください。</p>
-            </a>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>社内ポータル</title>
+    <style>
+        /* ページ全体のスクロールを完全に禁止 */
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; 
+            background-color: #003366; /* ヘッダーと同じ色で隙間を埋める */
+        }
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        /* 上部リンクバー（最小限の高さ） */
+        .top-bar {
+            background-color: #003366;
+            color: white;
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .nav-links a {
+            color: #fff;
+            text-decoration: none;
+            margin-left: 20px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+        .nav-links a:hover { opacity: 1; }
+
+        /* Tableau表示エリア（残りの画面すべてを占有） */
+        .viz-area {
+            flex-grow: 1;
+            position: relative;
+            background: white;
+        }
+        iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <div class="top-bar">
+        <strong style="font-size: 1.1rem;">社内ポータル</strong>
+        <div class="nav-links">
+            <a href="#">勤怠</a>
+            <a href="#">経費</a>
+            <a href="https://www.notion.so/Notion-1f2dd510a7e580e0b654e843c9027fd2" target="_blank">社内Wiki</a>
         </div>
     </div>
 
-    <div class="container" style="max-width: 1000px; margin-top: 3rem;">
-        <h2>売上ダッシュボード</h2>
-        <div style="width: 100%; height: 600px; background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
-            <iframe src="https://prod-apnortheast-a.online.tableau.com/t/info-e8496e5570/views/TODAYSSALES/TODAYSSALES?:embed=y&:showVizHome=n" 
-                    width="100%" 
-                    height="100%" 
-                    frameborder="0">
-            </iframe>
-        </div>
+    <div class="viz-area">
+        <iframe src="https://prod-apnortheast-a.online.tableau.com/t/info-e8496e5570/views/TODAYSSALES/TODAYSSALES?:embed=y&:showVizHome=n&:toolbar=n"></iframe>
     </div>
+</div>
+
+</body>
+</html>
